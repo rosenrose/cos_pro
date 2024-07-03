@@ -3,15 +3,8 @@
 
 class Solution {
     public long solution(long num) {
-        StringBuilder numAsString = new StringBuilder(String.valueOf(num + 1));
-
-        for (int i = 0; i < numAsString.length(); i++) {
-            if (numAsString.charAt(i) == '0') {
-                numAsString.setCharAt(i, '1');
-            }
-        }
-
-        long answer = Long.parseLong(numAsString.toString());
+        String numAsString = String.valueOf(num + 1);
+        long answer = Long.parseLong(numAsString.replaceAll("0", "1"));
 
         return answer;
     }
