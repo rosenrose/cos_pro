@@ -3,22 +3,22 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] arr, int K) {
-    int arr_len = arr.length;
-    int answer = 0;
+        int arr_len = arr.length;
+        int answer = 0;
 
-    for (int a = 0; a < arr_len - 2; a++) {
-        for (int b = a + 1; b < arr_len - 1; b++) {
-            for (int c = b + 1; c < arr_len; c++) {
-                if ((arr[a] + arr[b] + arr[c]) % K != 0) {
-                    continue;
+        for (int a = 0; a < arr_len - 2; a++) {
+            for (int b = a + 1; b < arr_len - 1; b++) {
+                for (int c = b + 1; c < arr_len; c++) {
+                    if ((arr[a] + arr[b] + arr[c]) % K != 0) {
+                        continue;
+                    }
+
+                    answer++;
                 }
-
-                answer++;
             }
         }
-    }
 
-    return answer;
+        return answer;
     }
 
     // 아래는 테스트케이스 출력을 해보기 위한 main 메소드입니다.

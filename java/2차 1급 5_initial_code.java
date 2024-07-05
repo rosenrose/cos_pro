@@ -3,17 +3,17 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] arr) {
-    int answer = 1;
+        int answer = 1;
 
-    for (int start = 0, end = 1; end < arr.length; end++) {
-        if (arr[end - 1] < arr[end]) {
-            answer = Math.max(end - start + 1, answer);
-        } else {
-            start = end;
+        for (int start = 0, end = 1; end < arr.length; end++) {
+            if (arr[end - 1] < arr[end]) {
+                answer = Math.max(end - start + 1, answer);
+            } else {
+                start = end;
+            }
         }
-    }
 
-    return answer;
+        return answer;
     }
 
     // 아래는 테스트케이스 출력을 해보기 위한 main 메소드입니다.
