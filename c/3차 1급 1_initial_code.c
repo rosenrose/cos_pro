@@ -39,7 +39,7 @@ bool solution(int arrA[], int arrA_len, int arrB[], int arrB_len) {
         return false;
     if(func_b(arrA, arrB, arrA_len)){
         int* arrA_temp = func_a(arrA, arrA_len);
-        if(func_c(arrA, arrB, arrA_len))
+        if(func_c(arrA_temp, arrB, arrA_len))
             return true;
     }
     return false;
