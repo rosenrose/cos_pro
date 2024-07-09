@@ -16,6 +16,7 @@ void permutations_resursive(int card[], int card_len, int depth, bool visited_id
 
         numbers[*count] = number;
         (*count)++;
+
         return;
     }
 
@@ -41,7 +42,7 @@ void permutations_resursive(int card[], int card_len, int depth, bool visited_id
 int* permutations(int card[], int card_len, int* count) {
     int depth = 0;
     bool visited_idx[9] = { false, };
-    int* selected = (int*)calloc(sizeof(char), card_len);
+    int* selected = (int*)calloc(sizeof(int), card_len);
     int* numbers = (int*)calloc(sizeof(int), MAX_LEN);
 
     permutations_resursive(card, card_len, depth, visited_idx, selected, numbers, count);
