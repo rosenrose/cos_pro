@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-bool isInRange(int num, int lowerInclude, int upperExclude) {
+bool is_in_range(int num, int lowerInclude, int upperExclude) {
     return lowerInclude <= num && num < upperExclude;
 }
 
@@ -18,7 +18,7 @@ int solution(char* bishops[], int bishops_len) {
             int row = bishops[i][1] - '1';
             int col = bishops[i][0] - 'A';
 
-            while (isInRange(row, 0, 8) && isInRange(col, 0, 8)) {
+            while (is_in_range(row, 0, 8) && is_in_range(col, 0, 8)) {
                 if (!checked[row][col]) {
                     checked[row][col] = true;
                     answer--;

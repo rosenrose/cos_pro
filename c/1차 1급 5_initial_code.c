@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-bool isInRange(int num, int lowerInclude, int upperExclude) {
+bool is_in_range(int num, int lowerInclude, int upperExclude) {
     return lowerInclude <= num && num < upperExclude;
 }
 
@@ -22,7 +22,7 @@ int solution(int n) {
         int next_row = row + dir_rows[dir_idx];
         int next_col = col + dir_cols[dir_idx];
         
-        if (!isInRange(next_row, 0, n) || !isInRange(next_col, 0, n) ||
+        if (!is_in_range(next_row, 0, n) || !is_in_range(next_col, 0, n) ||
             grid[next_row][next_col] != 0) {
             dir_idx = (dir_idx + 1) % 4;
         }
