@@ -7,11 +7,9 @@ class Solution {
         double minuteDegree = minute * 6;
         double angle = Math.abs(hourDegree - minuteDegree);
 
-        if (angle > 180) {
-            angle = 360 - angle;
-        }
-
+        angle = Math.min(angle, 360 - angle);
         String answer = String.format("%.1f", angle);
+
         return answer;
     }
 

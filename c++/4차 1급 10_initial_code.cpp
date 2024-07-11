@@ -22,15 +22,15 @@ bool is_in_range(int num, int lowerInclude, int upperExclude) {
 int solution(int a, int b) {
     int answer = 0;
 
-    for (int i = 2; i * i <= b; i++) {
-        if (!is_prime(i)) {
+    for (int num = 2; num * num <= b; num++) {
+        if (!is_prime(num)) {
             continue;
         }
 
-        if (is_in_range(i * i, a, b + 1)) {
+        if (is_in_range(num * num, a, b + 1)) {
             answer++;
         }
-        if (is_in_range(i * i * i, a, b + 1)) {
+        if (is_in_range(num * num * num, a, b + 1)) {
             answer++;
         }
     }

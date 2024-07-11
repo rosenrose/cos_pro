@@ -11,11 +11,9 @@ string solution(int hour, int minute) {
     float minute_degree = minute * 6;
     float angle = abs(hour_degree - minute_degree);
 
-    if (angle > 180) {
-        angle = 360 - angle;
-    }
-
+    angle = min(angle, 360 - angle);
     string answer = format("{:.1f}", angle);
+
     return answer;
 }
 

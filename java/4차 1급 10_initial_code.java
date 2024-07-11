@@ -5,15 +5,15 @@ class Solution {
     public int solution(int a, int b) {
         int answer = 0;
 
-        for (int i = 2; i * i <= b; i++) {
-            if (!isPrime(i)) {
+        for (int num = 2; num * num <= b; num++) {
+            if (!isPrime(num)) {
                 continue;
             }
 
-            if (isInRange(i * i, a, b + 1)) {
+            if (isInRange(num * num, a, b + 1)) {
                 answer++;
             }
-            if (isInRange(i * i * i, a, b + 1)) {
+            if (isInRange(num * num * num, a, b + 1)) {
                 answer++;
             }
 
