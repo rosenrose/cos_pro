@@ -51,10 +51,7 @@ int* permutations(int card[], int card_len, int* count) {
 }
 
 int compare(const void *a, const void * b){
-    int first = *(int *)a;
-    int second = *(int *)b;
-
-    return (first < second) ? -1 : (first > second) ? 1 : 0;
+    return *(int*)a - *(int*)b;
 }
 
 int solution(int card[], int card_len, int n) {
