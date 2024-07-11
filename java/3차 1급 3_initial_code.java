@@ -3,12 +3,12 @@ import java.util.*;
 
 class Solution {
     public int solution(String[] bishops) {
-        Boolean[][] checked = new Boolean[8][8];
+        boolean[][] checked = new boolean[8][8];
         int[] dirs_row = { -1, -1, 1, 1 };
         int[] dirs_col = { -1, 1, -1, 1 };
         int answer = 8 * 8;
 
-        for (Boolean[] row : checked) {
+        for (boolean[] row : checked) {
             Arrays.fill(row, false);
         }
 
@@ -32,7 +32,7 @@ class Solution {
         return answer;
     }
 
-    private Boolean isInRange(int num, int lowerInclude, int upperExclude) {
+    private boolean isInRange(int num, int lowerInclude, int upperExclude) {
         return lowerInclude <= num && num < upperExclude;
     }
 
