@@ -20,6 +20,7 @@ int solution(int number, int target) {
 
     steps[number] = 0;
     queue[queue_tail] = number;
+    queue_tail++;
 
     while (queue_head <= queue_tail) {
         int num = queue[queue_head];
