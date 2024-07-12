@@ -5,8 +5,8 @@
 
 using namespace std;
 
-bool is_in_range(int num, int lowerInclude, int upperExclude) {
-    return lowerInclude <= num && num < upperExclude;
+bool is_in_range(int num, int lower_include, int upper_exclude) {
+    return lower_include <= num && num < upper_exclude;
 }
 
 int solution(int n) {
