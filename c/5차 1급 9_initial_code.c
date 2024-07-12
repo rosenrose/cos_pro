@@ -4,36 +4,40 @@
 #include <stdlib.h>
 #define MAX_NUM 10000
 
-int min(int a, int b) {
-    return (a < b) ? a : b;
+bool is_in_range(int num, int lower_include, int upper_exclude) {
+    return lower_include <= num && num < upper_exclude;
 }
 
 int solution(int number, int target) {
-    int* steps = (int*)calloc(sizeof(int), MAX_NUM * 2 + 1);
+    int* steps = (int*)calloc(sizeof(int), MAX_NUM + 1);
+    int* queue = (int*)calloc(sizeof(int), MAX_NUM + 1);
+    int queue_head = 0;
+    int queue_tail = 0;
 
-    for (int i = number; i <= MAX_NUM * 2; i++) {
-        steps[i] = i - number;
-    }
-    for (int i = number; i >= 0; i--) {
-        steps[i] = number - i;
-    }
-
-    for (int i = 1; i <= MAX_NUM; i++) {
-        int step = 0;
-
-        for (int j = i; j <= MAX_NUM * 2; j *= 2) {
-            steps[j] = min(steps[j], steps[i] + step);
-            step++;
-        }
+    for (int i = 0; i <= MAX_NUM; i++) {
+        steps[i] = -1;
     }
 
-    for (int i = 2; i <= MAX_NUM * 2; i += 2) {
-        for (int j = i; j <= MAX_NUM * 2; j++) {
-            steps[j] = min(steps[j], steps[i] + (j - i));
+    steps[number] = 0;
+    queue[queue_tail] = number;
+
+    while (queue_head <= queue_tail) {
+        int num = queue[queue_head];
+        int adjacents[3] = { num + 1, num - 1, num * 2 };
+
+        for (int i = 0; i < 3; i++) {
+            int adj = adjacents[i];
+
+            if (!is_in_range(adj, 0, MAX_NUM + 1) || steps[adj] != -1) {
+                continue;
+            }
+
+            steps[adj] = steps[num] + 1;
+            queue[queue_tail] = adj;
+            queue_tail++;
         }
-        for (int j = i; j >= 0; j--) {
-            steps[j] = min(steps[j], steps[i] + (i - j));
-        }
+
+        queue_head++;
     }
 
     int answer = steps[target];
