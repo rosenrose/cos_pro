@@ -11,7 +11,7 @@ int solution(int grid[][4], int grid_len) {
     for(int i = 0; i < 4; i++)
         for(int j = 0; j < 4; j++)
             for(int k = j + 1; k < 4; k += 2)
-                answer = max(answer, max(grid[i][j] + grid[i][k], grid[i][j] + grid[k][j]));
+                answer = max(answer, max(grid[i][j] + grid[i][k], grid[j][i] + grid[k][i]));
     return answer;
 }
 
