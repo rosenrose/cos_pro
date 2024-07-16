@@ -18,7 +18,7 @@ int solution(int n, int mix, int k) {
             if(i < n/2)
                 card_a[i] = card[i];
             else
-                card_b[i - n/2] = card[i];
+                card_b[i - n / 2] = card[i];
         }
         
         for(int i = 0; i < n; i++) {
